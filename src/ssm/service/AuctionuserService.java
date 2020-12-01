@@ -1,12 +1,9 @@
 package ssm.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ssm.bean.AuctionuserBean;
 import ssm.mapper.AuctionuserMapper;
-
-
 
 @Service
 public class AuctionuserService {
