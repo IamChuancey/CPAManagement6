@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.AuctionrecordMapper">
+    <select id="AuctionRecord" parameterType="int"  resultType="ssm.bean.AuctionrecordBean">
+         select username,auctiontime,auctionprice from acutionuser, acutionrecord where acutionuser.userid=acutionrecord.userid and acutionrecord.auctionid=#{auctionid}
+     </select>
+     <insert id="InsertionAuction"  parameterType="ssm.bean.AuctionrecordBean" >
+         insert into acutionrecord values(default,#{auctionid},#{auctiontime},#{auctionprice},#{userid})
+    </insert>
+</mapper>

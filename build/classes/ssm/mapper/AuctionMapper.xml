@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.AuctionMapper">
+<select id="AllAuctionList"   resultType="ssm.bean.AuctionBean">
+         select auctionid,auctionname,auctionstartprice,auctionstarttime,auctionendtime,auctiondesc,auctionpic from acution
+</select>
+<delete id="AuctionDelete"  parameterType="int">
+         delete from acution where auctionid=#{auctionid}
+</delete>
+<select id="Auction"   parameterType="int"  resultType="ssm.bean.AuctionBean"  >
+         select auctionid,auctionname,auctionstartprice,auctionstarttime,auctionendtime,auctiondesc,auctionpic from acution where auctionid=#{auctionid}
+</select>
+<insert id="AuctionAdd"  parameterType="ssm.bean.AuctionBean">
+         insert into acution values(default,#{auctionname},#{auctionstartprice},#{auctionstarttime},#{auctionendtime},#{auctiondesc},#{auctionpic})
+</insert>
+<update id="AuctionUpdate" parameterType="ssm.bean.AuctionBean">
+         update acution set auctionname=#{auctionname},auctionstartprice=#{auctionstartprice},auctionstarttime=#{auctionstarttime},auctionendtime=#{auctionendtime},
+         auctiondesc=#{auctiondesc},auctionpic=#{auctionpic} where auctionid=#{auctionid}
+</update>
+</mapper>

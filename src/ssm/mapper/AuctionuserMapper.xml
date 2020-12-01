@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ssm.mapper.AuctionuserMapper">
+     <select id="UserNameisExisted" parameterType="String"  resultType="ssm.bean.AuctionuserBean">
+         select * from acutionuser where username=#{username}
+     </select>
+     <select id="FindUserByIdandPwd"  parameterType="String"  resultType="String">
+         select userpassword from acutionuser where username=#{username}
+     </select>
+      <select id="IsAdmin"  parameterType="String"  resultType="int">
+       select userisadmin from acutionuser where username=#{username}
+     </select>
+     <insert id="AddUser"   parameterType="ssm.bean.AuctionuserBean" >
+       insert into acutionuser values (default,#{username},#{userpassword},0)
+     </insert>
+       <select id="UserId"  parameterType="String"  resultType="int">
+       select userid  from acutionuser where username=#{username}
+      </select>
+</mapper>
